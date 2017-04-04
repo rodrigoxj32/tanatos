@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | GoGame Lenguaje
+    | Tanatos Lenguaje
     |--------------------------------------------------------------------------
     |
     | Acontinuacion se presentan los 'trans' para nuestra PlataformaWeb
@@ -13,7 +13,7 @@ return [
     | Bienvenido rufian. GG IZI
     */
     'LosEternos'             => 'Los_Eternos',
-    'GoGame'                 => 'GoGame',
+    'Tanatos'                => 'Tanato',
     'correoInstitucional'    => '@ues.edu.sv',
 
     /*
