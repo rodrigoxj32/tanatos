@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -156,6 +156,22 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*AdminLTE*/
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        /*AdminLTE*/
+
+        /*Paquete HTML-FORM*/
+        Collective\Html\HtmlServiceProvider::class,
+        /*Paquete HTML-FORM*/
+
+        /*Paquete de Flash*/
+        Laracasts\Flash\FlashServiceProvider::class,
+        /*Paquete de Flash*/
+
+        /*Paquete de Flash de Redirect con Clase*/
+        GeneaLabs\Bones\Flash\BonesFlashServiceProvider::class,
+        /*Paquete de Flash de Redirect con Clase*/
+
     ],
 
     /*
@@ -201,6 +217,16 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+
+        /*AdminLTE*/
+        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        /*AdminLTE*/
+
+        /*Paquete HTML-FORM*/
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        /*Paquete HTML-FORM*/
 
     ],
 
