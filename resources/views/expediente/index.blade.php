@@ -17,7 +17,11 @@
             <li class="active">Dashboard</li>
           </ol>
         </section>
+
+        <div class="panel-heading"  style="font-size: 24pt; " > Expedientes Encontrados     
+        </div>
 	
+    @include('bones-flash::bones.flash')
 	  @include('flash::message')
 	<table class="table table-striped" > 
 		<thead>
