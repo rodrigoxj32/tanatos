@@ -19,7 +19,7 @@
 					</div>
 					<br>
 				<div class="panel panel-default">
-
+					@include('bones-flash::bones.flash')
 					<div class="panel-heading"> Listado de medicamentos 		
 			
 					</div>
@@ -59,7 +59,7 @@
 					            @if(Auth::user()->idrol == 1)
 						  		<td>
 						  								
-									<a href="{{route('medicamentos.update',$medicamento['id'])}}" class="btn btn-warning"> <font color="black" size="2"> <b>Editar</b> </font>  </a>  
+									<a href="{{route('medicamentos.edit',$medicamento['id'])}}" class="btn btn-warning"> <font color="black" size="2"> <b>Editar</b> </font>  </a>  
 								@endif
 						        @endif
 								</td>

@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Medicamento;
-use Illuminate\Support\Facades\Auth;
-
+use App\TipoMedicamento;
+use GeneaLabs\Bones\Flash\Flash;
+use View;
 
 
 use DB;
@@ -32,7 +33,7 @@ class MedicamentosController extends Controller
 
         //dd(Auth::user());
        
-        Flash::danger('esto es una prueba');
+        
         return view('medicamentos.index',compact('medicamentos'));
     }
 
@@ -43,8 +44,9 @@ class MedicamentosController extends Controller
      */
     public function create()
     {
+        $tipoMedicamentos = TipoMedicamento::orderBy('id')->lists('nombretipomedicamento','id');
+        return View::make('medicamentos.create')->with('tipoMedicamentos',$tipoMedicamentos);
         
-        return view('medicamentos.create');
     }
 
     /**
@@ -55,7 +57,20 @@ class MedicamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+
+        Medicamento::create($request->all());
+
+        $medicamentos = Medicamento::orderBy('codigomedicamento','ASC')->paginate(20);  
+
+
+        $medicamentos->each(function($medicamentos){   
+            $medicamentos->tipoMedicamentos;
+        });
+
+        Flash::success("Se ha guardado el medicamento: ".$request->nombremedicamento." con exito");
+
+        return redirect()->route('medicamentos.index')->with('medicamentos',$medicamentos);
     }
 
     /**
@@ -77,7 +92,16 @@ class MedicamentosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $medicamento = Medicamento::find($id);   
+
+        //dd($medicamento);
+        
+
+         $tipoMedicamentos = TipoMedicamento::orderBy('id')->lists('nombretipomedicamento','id');
+        return View::make('medicamentos.update')
+        ->with('tipoMedicamentos',$tipoMedicamentos)
+        ->with('medicamento',$medicamento);      
+        
     }
 
     /**
@@ -87,9 +111,31 @@ class MedicamentosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $medicamento = Medicamento::find($id);
+
+        $medicamento->codigomedicamento = $request->codigomedicamento;
+        $medicamento->nombremedicamento = $request->nombremedicamento;
+        $medicamento->idtipomedicamento = $request->idtipomedicamento;
+        $medicamento->viaadministracion = $request->viaadministracion;
+        $medicamento->formafarmaceutica = $request->formafarmaceutica;
+        $medicamento->observacion = $request->observacion;
+        $medicamento->concentracion = $request->concentracion;
+        $medicamento->preciomedicamento = $request->preciomedicamento;
+
+        $medicamento->save();
+
+       $medicamentos = Medicamento::orderBy('codigomedicamento','ASC')->paginate(20);  
+
+
+        $medicamentos->each(function($medicamentos){   
+            $medicamentos->tipoMedicamentos;
+        });
+
+        Flash::success("Se ha actualizado el medicamento: ".$request->nombremedicamento." con exito");
+
+        return redirect()->route('medicamentos.index')->with('medicamentos',$medicamentos);
+        
     }
 
     /**
