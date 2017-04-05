@@ -30,8 +30,8 @@
 			@foreach($expedientes as $expediente)
 				<tr>
           <td>{{$expediente->id}} </td>
-					<td>{{$expediente->nombre}} </td>
-          <td>{{$expediente->apellido}} </td>
+					<td>{{$expediente->nombres}} </td>
+          <td>{{$expediente->apellidos}} </td>
 
 					<td> 
             <a href="{{route('expediente.vista',$expediente->id)}}" class="btn btn-success"> <font color="black" size="2"> <b>Ver más</b> </font>  </a> 
@@ -79,4 +79,4 @@
 
     </div><!-- ./wrapper -->
 </section><!-- /.content -->
-+@endsection
+@endsection

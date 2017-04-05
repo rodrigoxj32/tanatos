@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 use App\Expediente;
+use App\Cita;
 use DB;
 
 class expedienteController extends Controller
@@ -40,11 +41,24 @@ class expedienteController extends Controller
 
     }
 
-    public function verExpediente($id){
-        $expedientes = Expediente::where("id","=",$id)->get();
+    public function verExpedientes($id){
+        $expedientes = Cita::where('idexpediente','=',$id)->get();
+
+        $consulta = DB::table('expediente')
+        	->join("usuario","expediente.id","=","usuario.id")
+        	->join("estadocivil","usuario.idestadocivil","=","estadocivil.id")
+        	->where('expediente.id','=',$id)
+            ->get();
+
+        $consulta2 = DB::table('expediente')
+    	->join("historialclinico","expediente.idhistorialclinico","=","historialclinico.id")
+    	->where('expediente.id','=',$id)
+        ->get();
 
         return view('expediente.vista')
-        ->with('expedientes',$expediente);
+        ->with('expedientes',$expedientes)
+        ->with('consulta',$consulta)
+        ->with('consulta2',$consulta2);
 
     }
 

@@ -90,6 +90,11 @@ Route::get('/admin', 'HomeController@index');
 	        ]);*/
 	Route::resource('expediente','expedienteController');
 
+	Route::get('mostrarExpedientes/{expediente}/vista', [
+	    'uses' => 'expedienteController@verExpedientes', 
+	    'as'    => 'expediente.vista'
+	    ]);
+
 /*
 *
 * FIN RUTAS LOBO
