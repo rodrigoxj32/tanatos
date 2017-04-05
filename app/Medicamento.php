@@ -58,4 +58,12 @@ class Medicamento extends Model
      public function tratamiento(){
          return $this->hasMany('App\Tratamiento');
      }
+
+
+     public function scopeName($query,$name){
+        if($name != ""){
+        $query->where('nombremedicamento',"LIKE", "%$name%");
+            }
+     }
+
 }

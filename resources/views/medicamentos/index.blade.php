@@ -13,16 +13,29 @@
             <!-- Your Page Content Here -->
 	<div class="container spark-screen">
 		<div class="row">
+
+				
 			<div class="col-md-10 col-md-offset-1">
+	
 					<div align="right">
-							<a href="{{route('medicamentos.create')}}" class="btn btn-primary" > <font color="black" size="2" style=""> <b>Agregar nuevo Medicamento</b> </font>  </a> 
+							<a href="{{route('medicamentos.create')}}" class="btn btn-primary" > <font color="black" size="2" style=""> <b>Agregar nuevo Medicamento</b> </font>  </a>
+						
 					</div>
+
 					<br>
 				<div class="panel panel-default">
 					@include('bones-flash::bones.flash')
 					<div class="panel-heading"> Listado de medicamentos 		
 			
 					</div>
+					<br>
+					{!! Form::open(['route' =>'medicamentos.index', 'method'=>'GET','class'=>'form-center', 'role'=>'search' ]) !!}
+					<div class="input-group">
+					  <span class="input-group-addon">@</span>
+					  {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Busqueda'])!!}
+					
+					</div>
+					{!! Form::close() !!}
 
 					<div class="panel-body">
 						<!-- 16:9 aspect ratio -->

@@ -49,6 +49,7 @@ Route::get('/admin', 'HomeController@index');
 *
 */
 	Route::resource('medicamentos','MedicamentosController');
+
 	/*Route::get('verMedicamentos',[
 		'uses' => 'MedicamentosController@index',
 		'as' => 'verMedicamentos'

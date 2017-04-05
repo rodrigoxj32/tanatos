@@ -20,9 +20,12 @@ class MedicamentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $medicamentos = Medicamento::orderBy('codigomedicamento','ASC')->paginate(20); 
+
+        //dd($request->all());
+
+        $medicamentos = Medicamento::name($request->name)->orderBy('codigomedicamento','ASC')->paginate(20); 
 
        // $medicamentos = DB::table('medicamento')->paginate(20);
 
