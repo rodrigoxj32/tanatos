@@ -40,6 +40,6 @@ class TipoMedicamento extends Model
      *
      */
      public function medicamento(){
-         return $this->belongsTo('App\Medicamento');
+         return $this->hasMany('App\Medicamento');
      }
 }

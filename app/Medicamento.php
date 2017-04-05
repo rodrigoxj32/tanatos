@@ -42,13 +42,13 @@ class Medicamento extends Model
      *
      */
      public function tipoMedicamentos(){
-         return $this->hasMany('App\TipoMedicamento');
+         return $this->belongsTo('App\TipoMedicamento');
      }
      /**
      * RETORNO DE RELACIONES
      *
      */
      public function tratamiento(){
-         return $this->belongsTo('App\Tratamiento');
+         return $this->hasMany('App\Tratamiento');
      }
 }

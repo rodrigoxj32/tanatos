@@ -39,16 +39,16 @@ class Cita extends Model
      *
      */
      public function consultasMedicas(){
-         return $this->hasMany('App\ConsultaMedica');
+         return $this->belongsTo('App\ConsultaMedica');
      }
      public function expedientes(){
-         return $this->hasMany('App\Expediente');
+         return $this->belongsTo('App\Expediente');
      }
      /**
      * RETORNO DE RELACIONES
      *
      */
      public function signoVital(){
-         return $this->belongsTo('App\SignoVital');
+         return $this->hasMany('App\SignoVital');
      }
 }
