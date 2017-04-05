@@ -48,7 +48,12 @@ Route::get('/admin', 'HomeController@index');
 * RUTAS RODRIGO
 *
 */
+	Route::resource('medicamentos','MedicamentosController');
 
+	/*Route::get('verMedicamentos',[
+		'uses' => 'MedicamentosController@index',
+		'as' => 'verMedicamentos'
+			]);*/
 /*
 *
 * FIN RUTAS RODRIGO
