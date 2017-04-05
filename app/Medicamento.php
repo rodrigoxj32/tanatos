@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\FinishScope;
 
 class Medicamento extends Model
 {
@@ -65,5 +66,6 @@ class Medicamento extends Model
         $query->where('nombremedicamento',"LIKE", "%$name%");
             }
      }
+
 
 }
