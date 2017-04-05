@@ -59,7 +59,5 @@ class User extends Authenticatable
      public function expediente(){
          return $this->hasMany('App\Expediente');
      }
-     public function permiso(){
-         return $this->hasMany('App\Permisos');
-     }
+    
 }
