@@ -23,7 +23,6 @@ class Medicamento extends Model
         'preciomedicamento',
         /*FK*/
         'idtipomedicamento',
-        'idtratamiento',
     ];
 
     /**
@@ -43,9 +42,13 @@ class Medicamento extends Model
      *
      */
      public function tipoMedicamentos(){
-         return $this->hasMany('App\TipoMedicamento');
+         return $this->belongsTo('App\TipoMedicamento');
      }
-     public function tratamientos(){
+     /**
+     * RETORNO DE RELACIONES
+     *
+     */
+     public function tratamiento(){
          return $this->hasMany('App\Tratamiento');
      }
 }
