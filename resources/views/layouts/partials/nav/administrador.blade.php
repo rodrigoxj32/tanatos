@@ -25,6 +25,16 @@
                         </ul>
                     </li>
                     <!-- Fin Menu Medicamentos -->
+
+                    <!-- Inicio Menu Expediente -->
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-link'></i> <span>Expediente</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{route('expediente.index')}}">Ver Expediente</a></li>
+                         
+                        </ul>
+                    </li>
+                    <!-- Fin Menu Expediente -->
                 </ul>
             </li>
 <!-- FIN MENU ADMINISTRADOR -->
