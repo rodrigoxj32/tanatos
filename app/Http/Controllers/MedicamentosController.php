@@ -9,6 +9,7 @@ use App\Medicamento;
 use Illuminate\Support\Facades\Auth;
 
 
+
 use DB;
 
 class MedicamentosController extends Controller
@@ -31,7 +32,7 @@ class MedicamentosController extends Controller
 
         //dd(Auth::user());
        
-
+        Flash::danger('esto es una prueba');
         return view('medicamentos.index',compact('medicamentos'));
     }
 
