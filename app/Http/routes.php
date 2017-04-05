@@ -61,7 +61,12 @@ Route::get('/admin', 'HomeController@index');
 * RUTAS ELIAS
 *
 */
+Route::get('/calendar', function () {
+    return view('citas/calendar');
+})->name('calendar');
 
+
+Route::resource('citas','CitaController');
 /*
 *
 * FIN RUTAS ELIAS

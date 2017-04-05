@@ -44,4 +44,11 @@
     <link href="{{ asset('/plugins/file-input/css/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css" />
     <!-- Include Chosen Plugin -->
     <link href="{{ asset('/plugins/chosen/chosen.css') }}" rel="stylesheet" type="text/css" />
+
+
+    <!-- ELIAS LINKS.... CALENDAR -->
+    <link href="{{ asset('/plugins/fullcalendar/fullcalendar.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/plugins/fullcalendar/fullcalendar.print.css') }}" rel="stylesheet" media='print' />
+    <link href="{{ asset('/plugins/datetimepicker/bootstrap-datetimepicker.min.css') }}"  rel="stylesheet" type="text/css" />
+
 </head>
