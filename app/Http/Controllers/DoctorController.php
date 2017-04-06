@@ -35,7 +35,8 @@ class DoctorController extends Controller
 
     public function store(Request $request)
     {
-        
+       // dd($request->all());
+
         Doctor::create($request->all());
 
         $doctores = Doctor::orderBy('id','ASC')->paginate(20);  
