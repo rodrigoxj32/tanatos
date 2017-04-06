@@ -20,9 +20,9 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $doctores = Doctor::orderBy('id', 'ASC')->paginate(15);
+        $doctores = Doctor::Nombre($request->name)->orderBy('id', 'ASC')->paginate(15);
         
         return view('doctores.index')->with(['doctores'=>$doctores]);
     }
