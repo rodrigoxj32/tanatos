@@ -139,7 +139,7 @@ Route::resource('citas','CitaController');
 * RUTAS ALAM
 *
 */
-
+	Route::resource('doctores','DoctorController');
 /*
 *
 * FIN RUTAS ALAM
