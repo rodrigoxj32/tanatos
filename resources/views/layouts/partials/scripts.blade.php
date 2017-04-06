@@ -2,6 +2,9 @@
 
 <!-- jQuery 2.1.4 -->
 <script src="{{ asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+<!-- bootstrap collapse and transition plugins -->
+<script src="{{ asset('/plugins/datetimepicker/transition.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/datetimepicker/collapse.js') }}" type="text/javascript"></script>
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <!-- AdminLTE App -->
@@ -112,3 +115,62 @@
       });
 </script>
 
+
+<!-- ELIAS CALENDAR SCRIPTS                      -->
+<!-- Including plugin moment -->
+<script src="{{ asset('/plugins/moment/moment.js') }}" type="text/javascript"></script>
+
+<!-- including plugin fullcalendar -->
+<script src="{{ asset('/plugins/fullcalendar/fullcalendar.min.js') }}" type="text/javascript"></script>
+
+<!-- including datetimepicker  plugin -->
+<script src="{{ asset('/plugins/datetimepicker/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+
+
+
+
+<script>
+
+$(document).ready(function() {
+
+
+   $('#calendar').fullCalendar({
+                  //Encabezados que se muestran como los botones de adelante, atras y las diferentes vistas
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+                  defaultTimedEventDuration: '00:30:00',
+			defaultView: 'month',
+			editable: true,
+                  eventDurationEditable:false,
+                  navLinks: true,
+                  eventLimit: true,
+			events:  {url:'citas'},
+                  eventDragStop: function(event, jsEvent, ui, view) {
+                       //Mensaje cuando termina de moverse
+                  },
+                  eventClick: function(event){
+				var r = confirm("¿Está seguro de que desea eliminar esta cita?");
+                        if (r == true) {
+                              $('#calendar').fullCalendar('removeEvents',event._id);
+                        }  
+		   	      
+			}
+                  
+		});
+
+            
+});
+
+
+
+</script>
+
+<script type="text/javascript">
+      $(function () {
+            $('#datetimepicker1').datetimepicker({format: "YYYY-MM-DD HH:mm"});
+      });
+      
+</script>
