@@ -93,7 +93,7 @@ Route::get('/admin', 'HomeController@index');
 * RUTAS LOBO
 *
 */
-	/*Route::get('expediente/create','expedienteController@create');
+/*Route::get('expediente/create','expedienteController@create');
 	Route::get('expediente/show','expedienteController@show');
 	Route::get('Expedientes',[
 	        'uses' => 'expedienteController@index',
@@ -107,12 +107,20 @@ Route::get('/admin', 'HomeController@index');
 	        'uses' => 'expedienteController@destroy',
 	        'as' => 'expediente.destroy'
 	        ]);*/
+
+	
 	Route::resource('expediente','expedienteController');
 
 	Route::get('mostrarExpedientes/{expediente}/vista', [
 	    'uses' => 'expedienteController@verExpedientes', 
 	    'as'    => 'expediente.vista'
 	    ]);
+
+	Route::get('mostrarExpedientes/{id}/destroy',[
+	        'uses' => 'expedienteController@destroy',
+	        'as' => 'expediente.destroy'
+	        ]);
+
 
 /*
 *
