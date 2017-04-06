@@ -92,7 +92,7 @@ Route::get('/admin', 'HomeController@index');
 * RUTAS ALAM
 *
 */
-
+	Route::resource('doctores','DoctorController');
 /*
 *
 * FIN RUTAS ALAM
