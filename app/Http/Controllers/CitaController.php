@@ -18,7 +18,7 @@ class CitaController extends Controller
      */
     public function index()
     {
-        $citas = Cita::select('title','start','color')->get();
+        $citas = Cita::select('id','title','start','color','idexpediente')->get();
         return Response()->json($citas);
     }
 
@@ -115,6 +115,14 @@ class CitaController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        
+        try{
+           $cita = Cita::find($id);
+            $cita->delete();
+            return response('eliminado',200);
+        }catch(Exception $e){
+            return response('fallo',500);
+        }
     }
 }
